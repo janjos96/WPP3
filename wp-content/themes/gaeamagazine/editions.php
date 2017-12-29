@@ -4,10 +4,10 @@
 <?php include 'parts/head.php' ?>
 
 <body>
-<div class="scrollbar" id="style-3">
-    <div class="force-overflow">
+
 <?php include 'parts/navbar.php' ?>
 
+<div id="language"><a>PT</a>/<a>ENG</a></div>
 
 <div class="contentarea">
 
@@ -48,8 +48,6 @@
 
 
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-    </div>
-</div>
 </body>
 </html>
 <?php

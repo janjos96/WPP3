@@ -4,10 +4,10 @@
 <?php include 'parts/head.php' ?>
 
 <body>
-<div class="scrollbar" id="style-3">
-    <div class="force-overflow">
+
 <?php include 'parts/navbar.php' ?>
 
+<div id="language"><a>PT</a>/<a>ENG</a></div>
 
 <div class="contentarea">
 
@@ -15,47 +15,66 @@
     <h1 id="tit">ARTICLES</h1>
 
     <div class="grid">
-
-        <div class="grid-item grid-item--height2">
-            <div class="squarecontent">4 - A year from Monday<br><br>
-                <div class="viewmore">
-                    The question is: Is my thought changing? It is and it
-                    isn't.<br><br>
-
-                    <a href="article2.php" >View More</a>
-                </div>
-            </div>
-
-        </div>
-
-
-        <div class="grid-item grid-item--width2">
-
-            <div class="squarecontent">5 - Apocalipse Juggernaut, Hello!<br><br>
-                <div class="viewmore">
-                    I tend to view the whole disaster as an opportunity to try stuff.<br><br>
-
-                    <a href="article.php" >View More</a>
-                </div>
-            </div>
-        </div>
-
-
-
-
-        <div class="grid-item grid-item--width2 grid-item--height2"><a class="viewmore" href="article3.php">Patterns in Nature</a></div>
-        <div class="grid-item grid-item--width2 grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item--width2 grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2 grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--height2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--width2"><a class="viewmore">view more</a></div>
-        <div class="grid-item grid-item--height2"><a class="viewmore">view more</a></div>
+        <div class="grid-item grid-item--width2"><a href="article.php" class="viewmore">Apocalipse Juggernaut, Hello!</a></div>
+        <div class="grid-item grid-item--height2"><a href="article2.php" class="viewmore">A year from Monday</a></div>
+        <div class="grid-item"><a class="viewmore" href="article3.php">Patterns in Nature</a></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
     </div>
 
     <footer>
@@ -90,8 +109,5 @@
 
 
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
-
-    </div>
-</div>
 </body>
 </html>

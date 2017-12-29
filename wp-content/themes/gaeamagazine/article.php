@@ -13,7 +13,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/isotype.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
@@ -48,8 +48,7 @@
 </head>
 
 <body>
-<div class="scrollbar" id="style-3">
-    <div class="force-overflow">
+
 <div class="row">
     <div class="col-2">
         <?php include 'parts/navbar.php' ?>
@@ -217,8 +216,5 @@
         });
     });
 </script>
-
-    </div>
-</div>
 </body>
 </html>

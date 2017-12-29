@@ -15,7 +15,6 @@ html {
     font-size: 1em;
     line-height: 1.4;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 /*
@@ -115,8 +114,7 @@ nav {
     width: 150px;
     margin: 25px;
     position: fixed;
-   /* background-color: #cbcfd6;*/
-   /* border: 1px solid black;*/
+    background-color: #cbcfd6;
 
 
 }
@@ -156,11 +154,10 @@ nav ul {
 }
 
 #title {
-   /* border-bottom: 1px solid black;*/
-    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
     margin-bottom: 10px;
     margin-top: 0;
-    width: 130px;
 
 
 
@@ -175,8 +172,6 @@ nav ul {
 #tit{
     padding: 0;
     margin: 0;
-    margin-top: 25px;
-    margin-bottom: 25px;
 
 }
 
@@ -228,15 +223,8 @@ nav ul {
 #language{
     position: fixed;
     z-index: 2;
-  /*  top:20px;
-    right: 20px;*/
-
-    bottom: 20px;
-    width: 100%
-}
-
-.squarecontent{
-    padding: 15px;
+    top:20px;
+    right: 20px;
 }
 
 #imagemain{
@@ -261,48 +249,13 @@ nav ul {
 .contentarea{
     width: 80%;
     float: right;
-    margin-top: 28px;
+    margin-top: 50px;
     padding-right: 50px;
     z-index: -1;
 
 }
 
-/*CONTACTS CSS*/
 
-#address{
-
-    font-size: 2vw;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    text-align: center;
-
-}
-
-.emailform{
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    text-align: center;
-    margin-top: 80px;
-}
-
-.emailform input{
-    width: 60%;
-    height: 40px;
-    margin: 10px;
-    background-color: white;
-    border: 1px solid gray;
-
-}
-
-#messageBox{
-height: 200px;
-
-
-}
-
-/*-----------------------------------*/
 footer{
     margin-top: 50px;
     border-top: 1px solid black;
@@ -319,44 +272,7 @@ footer p{
 
 
 
-/*SCROLL*/
 
-.scrollbar {
-    margin-left: 10px;
-    margin-right: 10px;
-    float: right;
-    height: 100vh;
-    width: 100vw;
-    background: white;
-    overflow-y: scroll;
-    margin-bottom: 5px;
-    margin-top: 5px;
-}
-
-.force-overflow {
-    min-height: 450px;
-    margin-right: 50px;
-
-}
-
-/* STYLE*/
-
-#style-3::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
-    margin-bottom: 15px;
-}
-
-#style-3::-webkit-scrollbar {
-    width: 1px;
-    background-color: #F5F5F5;
-
-}
-
-#style-3::-webkit-scrollbar-thumb {
-    background-color: #000000;
-
-}
 
 
 
