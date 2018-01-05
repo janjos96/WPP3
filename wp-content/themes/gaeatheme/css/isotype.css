@@ -1,6 +1,4 @@
-body {
-    font-family: sans-serif;
-}
+
 
 /* ---- grid ---- */
 
@@ -30,10 +28,11 @@ body {
     background: #999;
     border: 5px solid white;
    /* z-index: 5;*/
+
 }
 
-.grid-item--width2 { width: 200px; }
-.grid-item--height2 { height: 200px; }
+.grid-item--width2 { width: 200px;}
+.grid-item--height2 { height: 200px;}
 
 .grid-item:hover {
     background: #8CF;
