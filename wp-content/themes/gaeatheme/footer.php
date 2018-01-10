@@ -11,22 +11,38 @@
 
 ?>
 
-	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'gaeatheme' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'gaeatheme' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'gaeatheme' ), 'gaeatheme', '<a href="http://underscores.me/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer>
+    <p>GAEA® is a registered trademark.</p>
+</footer>
+
+</div>
+</div>
+
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="<?php echo get_bloginfo('template_directory'); ?>/js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/plugins.js"></script>
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/isotope.pkgd.min.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () {
+        ga.q.push(arguments)
+    };
+    ga.q = [];
+    ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto');
+    ga('send', 'pageview')
+</script>
+
+
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
 <?php wp_footer(); ?>
 

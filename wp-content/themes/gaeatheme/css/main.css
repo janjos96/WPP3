@@ -167,7 +167,7 @@ body{
 }
 
 
-.mainnav {
+.page_item {
     list-style-type: none;
     padding: 2%;
     cursor: pointer;
@@ -177,12 +177,12 @@ body{
 
 }
 
-.mainnav a:hover{
+.page_item a:hover{
     text-decoration: line-through;
     color: black;
 }
 
-.mainnav a{
+.page_item a{
     color: black;
     text-decoration: none;
 
