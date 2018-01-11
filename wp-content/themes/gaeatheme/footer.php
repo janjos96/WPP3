@@ -44,6 +44,14 @@
 
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
+<div class="KW_progressContainer">
+    <div class="KW_progressBar">
+
+    </div>
+</div>
+
+<script src="<?php echo get_bloginfo('template_directory'); ?>/js/hidescrollmain.js"></script>
+
 <?php wp_footer(); ?>
 
 </body>

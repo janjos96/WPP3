@@ -16,6 +16,9 @@ html {
     line-height: 1.4;
     overflow-x: hidden;
     overflow-y: hidden;
+    /*font-family: 'Inconsolata', monospace;
+    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Serif', serif;*/
 }
 
 /*
@@ -107,7 +110,7 @@ textarea {
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inconsolata', monospace !important;
 }
 
 #navb {
@@ -115,10 +118,10 @@ body{
     width: 150px;
     margin: 25px;
     position: fixed;
-   /* background-color: #cbcfd6;*/
-  /* border: 1px solid black;*/
+    /* background-color: #cbcfd6;*/
+    /* border: 1px solid black;*/
     border-left: 1px solid black;
-   /* z-index: 20;*/
+    /* z-index: 20;*/
     display: block ;
 
 }
@@ -143,6 +146,8 @@ body{
 
 }
 
+
+
 .social{
     margin-top: 5px;
 }
@@ -155,7 +160,7 @@ body{
 
 .imagemain{
     width: 110vw;
-   margin-left: -18%;
+    margin-left: -18%;
     margin-top: -5%;
 
 
@@ -201,8 +206,12 @@ nav ul {
 
 }
 
+.index_sections{
+    font-family: 'Oswald', sans-serif;
+}
+
 #title {
-   /* border-bottom: 1px solid black;*/
+    /* border-bottom: 1px solid black;*/
     padding-bottom: 20px;
     margin-bottom: 10px;
     margin-top: 20px;
@@ -272,8 +281,8 @@ nav ul {
 #language{
     position: fixed;
     z-index: 2;
-  /*  top:20px;
-    right: 20px;*/
+    /*  top:20px;
+      right: 20px;*/
 
     bottom: 20px;
     width: 100%
@@ -313,18 +322,18 @@ nav ul {
 #address{
 
     font-size: 2vw;
- /*   margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    text-align: center;*/
+    /*   margin-left: auto;
+       margin-right: auto;
+       width: 90%;
+       text-align: center;*/
 
 }
 
 .emailform{
-/*    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    text-align: center;*/
+    /*    margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        text-align: center;*/
     margin-top: 80px;
 }
 
@@ -339,7 +348,7 @@ nav ul {
 }
 
 #messageBox{
-height: 200px;
+    height: 200px;
 
 
 }
@@ -387,39 +396,50 @@ footer p{
 
 .scrollbar {
     margin-left: 10px;
-
-
     height: 100vh;
     width: 100vw;
     background: white;
     overflow-y: scroll;
     overflow-x: hidden;
-
+    float: right;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 
 }
 
 .force-overflow {
     min-height: 450px;
     margin-right: 50px;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 
 }
 
 /* STYLE*/
 
 #style-3::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    background-color: #F5F5F5;
+
+    /* background-color: #F5F5F5;*/
+    background-color:rgba(255,255,255,0);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 
 }
 
 #style-3::-webkit-scrollbar {
-    width: 10px;
-    background-color: #F5F5F5;
+    width: 0px;
+    /*  background-color: #F5F5F5;*/
+    background-color:rgba(255,255,255,0);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 
 }
 
 #style-3::-webkit-scrollbar-thumb {
-    background-color: #000000;
+    /*  background-color: #000000;*/
+    background-color:rgba(255,255,255,0);
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 
 }
 
@@ -543,9 +563,9 @@ footer p{
 }
 
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
