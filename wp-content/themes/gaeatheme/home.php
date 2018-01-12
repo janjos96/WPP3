@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+/**
+ * Template Name: Home Page
+ */
+
+get_header(); ?>
 
     <body <?php body_class(); ?>>
 
