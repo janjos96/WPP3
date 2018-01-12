@@ -28,7 +28,6 @@
     <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/responsive.css">
     <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory'); ?>/css/isotype.css">
     <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory'); ?>/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory'); ?>/css/shop.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 
