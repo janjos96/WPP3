@@ -269,3 +269,5 @@
                     </section>
 
 <?php get_footer(); ?>
+
+                    <script src="<?php echo get_bloginfo('template_directory'); ?>/js/hidescrollmain.js"></script>

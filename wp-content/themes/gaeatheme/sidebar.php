@@ -8,4 +8,18 @@
         <div id="language"><a>PT</a>/<a>ENG</a></div>
     </ul>
 
+
+
+</nav>
+
+<nav id="responsive_nav">
+
+    <ul>
+        <?php wp_list_pages( '&title_li=&exclude=2' ); ?>
+        <li><a>PT</a>/<a>ENG</a></li>
+    </ul>
+
+    <i id="btn" class="fa fa-chevron-down fa-3x"  aria-hidden="true"></i>
+
+
 </nav>
