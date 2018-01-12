@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php post_class(); ?>>
+<li <?php post_class(); ?> class="produto-singular">
 	<?php
 	/**
 	 * woocommerce_before_shop_loop_item hook.
@@ -51,6 +51,13 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_shop_loop_item_title' );
 
+    /**
+     * woocommerce_shop_loop_item_title hook.
+     *
+     * @hooked woocommerce_template_loop_product_title - 10
+     */
+    do_action( 'woocommerce_after_shop_loop_item_description' );
+
 	/**
 	 * woocommerce_after_shop_loop_item_title hook.
 	 *
@@ -67,4 +74,5 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
+    <hr>
 </li>

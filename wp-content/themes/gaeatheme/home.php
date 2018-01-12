@@ -30,7 +30,7 @@ get_header(); ?>
                     <nav id="mainnav">
 
                         <ul>
-                            <?php wp_list_pages( '&title_li=&exclude=2' ); ?>
+                            <?php wp_list_pages( '&title_li=&exclude=2,52,53,54' ); ?>
                         </ul>
 
                     </nav>
