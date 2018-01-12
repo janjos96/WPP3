@@ -5,9 +5,21 @@
     <!--    <h1 id="title"><a href="index.php">GAEA</a></h1>-->
 
         <?php wp_list_pages( '&title_li=&exclude=2' ); ?>
-        <li class="page_item social"><a><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a></li>
-        <li class="page_item social"><a> <i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
         <div id="language"><a>PT</a>/<a>ENG</a></div>
     </ul>
+
+
+
+</nav>
+
+<nav id="responsive_nav">
+
+    <ul>
+        <?php wp_list_pages( '&title_li=&exclude=2' ); ?>
+        <li><a>PT</a>/<a>ENG</a></li>
+    </ul>
+
+    <i id="btn" class="fa fa-chevron-down fa-3x"  aria-hidden="true"></i>
+
 
 </nav>
