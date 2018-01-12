@@ -60,8 +60,19 @@ get_header(); ?>
 
 
                     </div>
+                    <!-------------------------------------------------------------------------------------->
+
+                    <div data-relative-input="true" id="responsiveimagemain">
+                        <div data-depth="0.0"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/logo_resp.png"></div>
+                        <div data-depth="0.8"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/1_resp.png"></div>
+                        <div data-depth="0.7"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/2_resp.png"></div>
+                        <div data-depth="0.6"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/3_resp.png"></div>
+                        <div data-depth="0.5"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/4_resp.png"></div>
+                        <div data-depth="0.4"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/5_resp.png"></div>
 
 
+                    </div>
+                    <!-------------------------------------------------------------------------------------->
 
                     <section id="latestarticles" >
 

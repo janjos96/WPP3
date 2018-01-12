@@ -24,13 +24,13 @@ $(document).ready(function () {
           }*/
         $("#responsive_nav ul").slideUp(0);
 
-        $("#btn").click(function () {
+        $("#responsive_nav").click(function () {
 
 
             if (count % 2 === 0) {
                 $("#responsive_nav ul").slideDown(0);
                 $("#responsive_nav").css("height", "100vh");
-                $(this).css("transform", " rotate(180deg)");
+               $("#btn").css("transform", " rotate(180deg)");
 
                 count += 1;
             } else {
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
                 $("#responsive_nav ul").slideUp(0);
                 $("#responsive_nav ").css("height", "10vh");
-                $(this).css("transform", " rotate(360deg)");
+                $("#btn").css("transform", " rotate(360deg)");
 
                 count += 1;
             }
@@ -113,6 +113,17 @@ $(document).ready(function () {
         limitY: false,
 
     });
+
+
+    var resp = document.getElementById('responsiveimagemain');
+
+    var parallaxInstance = new Parallax(resp, {
+        limitX: false,
+        limitY: false,
+
+    });
+
+
     /*------------------------------------------*/
 
     //   }

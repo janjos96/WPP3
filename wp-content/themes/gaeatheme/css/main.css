@@ -156,6 +156,15 @@ body{
 
 
 }
+
+#responsiveimagemain{
+    width: 110vw;
+    margin-left: -18%;
+    margin-top: -5%;
+    visibility: hidden;
+
+}
+
 #logo{
     width: 100vw;
     margin-left: -21%;
