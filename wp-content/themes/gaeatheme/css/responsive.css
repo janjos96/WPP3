@@ -50,4 +50,25 @@
         visibility: hidden;
     }
 
+
+    .index_titles{
+        visibility: visible !important;
+    }
+
+
+    .imagemain{
+        display: none;
+
+    }
+
+
+    #responsiveimagemain{
+        visibility: visible;
+    }
+
+    .respimage{
+        width: 100vw;
+    }
+
+
 }
