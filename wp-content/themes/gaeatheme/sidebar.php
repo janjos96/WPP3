@@ -15,7 +15,7 @@
 <nav id="responsive_nav">
 
     <ul>
-        <?php wp_list_pages( '&title_li=&exclude=2' ); ?>
+        <?php wp_list_pages( '&title_li=' ); ?>
         <li><a>PT</a>/<a>ENG</a></li>
     </ul>
 
