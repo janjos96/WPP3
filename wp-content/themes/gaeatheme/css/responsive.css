@@ -10,7 +10,7 @@
     }
 
     #responsive_nav {
-
+        /*border-bottom: 1px solid black;*/
         position: fixed;
         z-index: 30;
         background-color: white;
