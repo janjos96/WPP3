@@ -161,7 +161,7 @@ body{
     width: 110vw;
     margin-left: -18%;
     margin-top: -5%;
-    visibility: hidden;
+    display: none;
 
 }
 
