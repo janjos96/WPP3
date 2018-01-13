@@ -94,7 +94,7 @@ get_header(); ?>
 
 
                             <div class="grid-item grid-item--height2 a2">
-                                <div class="index_titles"><br><br>
+                                <div class="index_titles">Man role....<br><br>
                                     <div class="viewmore">
                                         The question is: Is my thought changing? It is and it
                                         isn't.<br><br>
