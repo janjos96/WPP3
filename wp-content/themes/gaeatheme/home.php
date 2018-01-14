@@ -5,6 +5,8 @@
 
 get_header(); ?>
 
+<div id="barrabranca"></div>
+
     <div class="scrollbar" id="style-3">
         <div class="force-overflow">
 

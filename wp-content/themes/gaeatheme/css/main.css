@@ -212,7 +212,14 @@ modal-body{
 }
 
 /*--------------------------------------------------------*/
-
+#barrabranca{
+    width: 100vw;
+    background-color: white;
+    height: 50px;
+    z-index: 500;
+    position: fixed;
+    display: none;
+}
 
 .page_item {
     list-style-type: none;
