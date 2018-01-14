@@ -156,6 +156,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function custom_query_vars_filter($vars) {
+    $vars[] = 'display';
+    return $vars;
+}
+add_filter( 'query_vars', 'custom_query_vars_filter' );
+
 
 //WOOCOMMERCE
 

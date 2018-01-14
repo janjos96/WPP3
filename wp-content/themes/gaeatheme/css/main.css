@@ -246,6 +246,19 @@ modal-body{
 
 }
 
+.articles_item {
+    list-style-type: none;
+    cursor: pointer;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+.articles_item:hover{
+    text-decoration: line-through;
+    color: black;
+}
+
 
 
 nav ul {
