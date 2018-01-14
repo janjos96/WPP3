@@ -75,4 +75,15 @@
         display: none;
     }
 
+
+    .modal-dialog{
+
+        position: relative !important;
+        top: 0%;
+        transform: translateY(0%)!important;
+
+
+
+    }
+
 }
