@@ -13,13 +13,13 @@ $(document).ready(function () {
 
                 /*  $("#navb").fadeIn(0);*/
                 $("#navb").css("visibility", "visible");
-                $("#barrabranca").css("display", "block");
+                $("#gaeacontainer").css("display", "block");
 
 
 
             } else {
                 $("#navb").css("visibility", "hidden");
-                $("#barrabranca").css("display", "none");
+                $("#gaeacontainer").css("display", "none");
 
             }
         });
