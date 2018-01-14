@@ -13,27 +13,45 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-		<?php
-		while ( have_posts() ) : the_post();
+<div class="scrollbar" id="style-3">
+    <div class="force-overflow">
 
-			get_template_part( 'template-parts/content', get_post_type() );
 
-			the_post_navigation();
+    <div class="row">
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+    <div class="col-2">
 
-		endwhile; // End of the loop.
-		?>
+        <?php get_sidebar(); ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+    </div>
 
-<?php
-get_sidebar();
-get_footer();
+
+    <div class="col-10">
+
+    <div id="primary" class="content-area">
+        <main id="main" class="site-main">
+
+            <div class="img">
+                <?php $image = get_field('main_image'); ?>
+                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+            </div>
+
+            <?php
+            while ( have_posts() ) : the_post();
+
+                get_template_part( 'template-parts/content', 'page' );
+
+                // If comments are open or we have at least one comment, load up the comment template.
+                if ( comments_open() || get_comments_number() ) :
+                    comments_template();
+                endif;
+
+            endwhile; // End of the loop.
+            ?>
+
+        </main><!-- #main -->
+    </div><!-- #primary -->
+
+
+<?php get_footer(); ?>

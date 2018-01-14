@@ -47,3 +47,27 @@
 
     <?php wp_head(); ?>
 </head>
+
+<body <?php body_class(); ?>>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                <?php
+                $my_id = 22;
+                $post_id_22 = get_post($my_id);
+                $content = $post_id_22->post_content;
+                $content = apply_filters('the_content', $content);
+                $content = str_replace(']]>', ']]>', $content);
+                echo $content;
+                ?>
+            </div>
+        </div>
+    </div>
+</div>

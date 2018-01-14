@@ -193,6 +193,16 @@ body{
 
 }
 
+.page_item span:hover{
+    text-decoration: line-through;
+    color: black;
+}
+
+.page_item span{
+    color: black;
+    text-decoration: none;
+
+}
 
 
 
@@ -653,4 +663,21 @@ footer p{
 .vl {
     border-left: 6px solid black;
     height: 50px;
+}
+
+/*MODAL*/
+
+body.modal-open .scrollbar{
+    -webkit-filter: blur(7px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+.modal-backdrop {background: #f7f7f7;}
+
+.close {
+    font-size: 50px;
+    display:block;
 }

@@ -5,8 +5,6 @@
 
 get_header(); ?>
 
-<body <?php body_class(); ?>>
-
 <div class="scrollbar" id="style-3">
     <div class="force-overflow">
 

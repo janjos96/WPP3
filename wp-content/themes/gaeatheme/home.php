@@ -5,8 +5,6 @@
 
 get_header(); ?>
 
-    <body <?php body_class(); ?>>
-
     <div class="scrollbar" id="style-3">
         <div class="force-overflow">
 
@@ -30,7 +28,8 @@ get_header(); ?>
                     <nav id="mainnav">
 
                         <ul>
-                            <?php wp_list_pages( '&title_li=&exclude=2,52,53,54' ); ?>
+                            <li class="page_item"><span data-toggle="modal" data-target="#myModal" >About</span></li>
+                            <?php wp_list_pages( '&title_li=&exclude=2,52,53,54,22' ); ?>
                         </ul>
 
                     </nav>
