@@ -1,7 +1,9 @@
+<div id="gaeacontainer"> <a href="<?php echo get_bloginfo( 'wpurl' );?>"><img id="title" src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.gaea.png" /></a></div>
+
 <nav id="navb">
 
     <ul>
-    <a href="<?php echo get_bloginfo( 'wpurl' );?>"><img id="title" src="<?php echo get_bloginfo('template_directory'); ?>/img/logo.gaea.png" /></a>
+
     <!--    <h1 id="title"><a href="index.php">GAEA</a></h1>-->
 
         <li class="page_item"><span data-toggle="modal" data-target="#myModal" >about</span></li>
