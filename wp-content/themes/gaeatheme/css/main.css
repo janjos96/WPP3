@@ -217,6 +217,19 @@ body{
     color: black;
 }
 
+.editions_item {
+    list-style-type: none;
+    cursor: pointer;
+    width: 100%;
+    color: black;
+    text-decoration: none;
+}
+
+.editions_item:hover{
+    text-decoration: line-through;
+    color: black;
+}
+
 
 
 nav ul {

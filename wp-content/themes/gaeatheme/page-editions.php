@@ -54,7 +54,7 @@ get_header(); ?>
                 if (have_posts()) : while (have_posts()) : the_post(); ?>
 
                     <div class="img">
-                        <?php $image = get_field('main_image'); ?>
+                        <?php $image = get_field('thumbnail'); ?>
                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:20%;"/>
                     </div>
 

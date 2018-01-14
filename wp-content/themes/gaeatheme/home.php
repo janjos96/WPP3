@@ -28,7 +28,7 @@ get_header(); ?>
                     <nav id="mainnav">
 
                         <ul>
-                            <li class="page_item"><span data-toggle="modal" data-target="#myModal" >About</span></li>
+                            <li class="page_item"><span data-toggle="modal" data-target="#myModal" >about</span></li>
                             <?php wp_list_pages( '&title_li=&exclude=2,52,53,54,22' ); ?>
                         </ul>
 
@@ -68,8 +68,6 @@ get_header(); ?>
                         <div data-depth="0.6"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/3_resp.png"></div>
                         <div data-depth="0.5"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/4_resp.png"></div>
                         <div data-depth="0.4"><img class="respimage" src="<?php echo get_bloginfo('template_directory'); ?>/img/paralaxlayers/5_resp.png"></div>
-
-
                     </div>
                     <!-------------------------------------------------------------------------------------->
 
@@ -259,31 +257,31 @@ get_header(); ?>
                     <section class="latesteditions">
                         <h1 class="index_sections">EDITIONS</h1>
 
+                        <?php
+                        // get all the categories from the database
+                        $cats = get_terms(array('taxonomy'=>'category', 'name__like' => 'issue-release'));
 
+                        // loop through the categries
+                        foreach ($cats as $cat) {
+                            // setup the cateogory ID
+                            $cat_id= $cat->term_id;
+                            // create a custom wordpress query
+                            query_posts("cat=$cat_id&posts_per_page=100");
+                            // start the wordpress loop!
+                            if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                        <div class="edsize">
-                            <img class="editionsphoto" src="<?php echo get_bloginfo('template_directory'); ?>/img/editions/issue1.jpg">
-                            <figcaption>Issue 1</figcaption>
-                            <br><br>
-                        </div>
+                                <div class="edsize" style="margin-bottom: 5%">
+                                    <a href="<?php the_permalink();?>">
+                                    <?php $image = get_field('thumbnail'); ?>
+                                    <img class="editionsphoto" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                    <br>
+                                    <br>
+                                    <a class="editions_item" href="<?php the_permalink();?>"><?php the_title(); ?></a>
+                                    </a>
+                                </div>
 
-                        <div class="edsize">
-                            <img class="editionsphoto" src="<?php echo get_bloginfo('template_directory'); ?>/img/editions/issue1.jpg">
-                            <figcaption>Issue 1</figcaption>
-                            <br><br>
-                        </div>
-
-                        <div class="edsize">
-                            <img class="editionsphoto" src="<?php echo get_bloginfo('template_directory'); ?>/img/editions/issue1.jpg">
-                            <figcaption>Issue 1</figcaption>
-                            <br><br>
-                        </div>
-
-                        <div class="edsize">
-                            <img class="editionsphoto" src="<?php echo get_bloginfo('template_directory'); ?>/img/editions/issue1.jpg">
-                            <figcaption>Issue 1</figcaption>
-                            <br><br>
-                        </div>
+                            <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+                        <?php } // done the foreach statement ?>
 
                     </section>
 
