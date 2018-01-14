@@ -78,6 +78,7 @@ get_header(); ?>
                         <h1 class="index_sections">LATEST ARTICLES</h1>
 
                         <div class="grid">
+
                             <div class="grid-item grid-item--width2 a1">
 
                                 <div class="index_titles">Apocalipse Juggernaut, Hello!<br><br>
@@ -88,6 +89,7 @@ get_header(); ?>
                                     </div>
                                 </div>
                             </div>
+
 
 
                             <div class="grid-item grid-item--height2 a2">
@@ -123,7 +125,9 @@ get_header(); ?>
                                 </div>
                             </div>
 
-                            <div class="grid-item--width2 grid-item--height2 a5">
+
+
+                            <div class="grid-item grid-item--width2 grid-item--height2 a5">
                                 <div class="index_titles">Patterns in Nature<br><br>
                                     <div class="viewmore">
                                         The question is: Is my thought changing? It is and it

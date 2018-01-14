@@ -15,6 +15,7 @@ $(document).ready(function () {
                 $("#navb").css("visibility", "visible");
 
 
+
             } else {
                 $("#navb").css("visibility", "hidden");
 

@@ -10,7 +10,7 @@
     }
 
     #responsive_nav {
-
+        /*border-bottom: 1px solid black;*/
         position: fixed;
         z-index: 30;
         background-color: white;
@@ -63,12 +63,16 @@
 
 
     #responsiveimagemain{
-        visibility: visible;
+        display: block;
     }
 
     .respimage{
         width: 100vw;
     }
 
+
+    .KW_progressContainer{
+        display: none;
+    }
 
 }
