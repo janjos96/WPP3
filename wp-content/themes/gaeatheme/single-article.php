@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Medium-Post
+ * Template Name: Article Template
  * Template Post Type: post, page, product
  *
  * The template for displaying all single posts

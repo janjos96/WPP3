@@ -46,8 +46,7 @@ get_header(); ?>
             ?>
 
 
-            <a href="<?php echo add_query_arg($paramslist); ?>">list</a>/<a href="<?php echo add_query_arg($paramsbox); ?>">box</a>
-
+            <a class="articles_item" href="<?php echo add_query_arg($paramslist); ?>">list</a>/<a class="articles_item" href="<?php echo add_query_arg($paramsbox); ?>">box</a>
 
             <?php
             // get all the categories from the database
@@ -81,7 +80,8 @@ get_header(); ?>
                     // setup the cateogory ID
                     $cat_id = $cat->term_id;
                     // Make a header for the cateogry
-                    echo "<h2>" . $cat->name . "</h2>";
+                    echo "<h4 style='float: right'>" . $cat->name . "</h4>";
+                    echo '<hr style="background-color:black; height:3px">';
                     // create a custom wordpress query
                     query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
                     // start the wordpress loop!
