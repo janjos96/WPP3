@@ -40,26 +40,83 @@ get_header(); ?>
             ?>
 
             <?php
+            // an associative array containing the query var and its value
+            $paramslist = array('display' => 'list');
+            $paramsbox = array('display' => 'box');
+            ?>
+
+
+            <a href="<?php echo add_query_arg($paramslist); ?>">list</a>/<a href="<?php echo add_query_arg($paramsbox); ?>">box</a>
+
+
+            <?php
             // get all the categories from the database
-            $cats = get_terms( 'category', array( 'name__like' => 'issue' ) );
+            $cats = get_terms( 'category', array( 'name__like' => 'issue '));
 
-            // loop through the categries
-            foreach ($cats as $cat) {
-                // setup the cateogory ID
-                $cat_id= $cat->term_id;
-                // Make a header for the cateogry
-                echo "<h2>".$cat->name."</h2>";
-                // create a custom wordpress query
-                query_posts("cat=$cat_id&posts_per_page=100");
-                // start the wordpress loop!
-                if (have_posts()) : while (have_posts()) : the_post(); ?>
+            $display =  get_query_var('display');
 
-                    <?php // create our link now that the post is setup ?>
-                    <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
-                    <?php echo '<hr/>'; ?>
+            if(!$display) {
+                // loop through the categries
+                foreach ($cats as $cat) {
+                    // setup the cateogory ID
+                    $cat_id = $cat->term_id;
+                    // Make a header for the cateogry
+                    echo "<h2>" . $cat->name . "</h2>";
+                    // create a custom wordpress query
+                    query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
+                    // start the wordpress loop!
+                    if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
-            <?php } // done the foreach statement ?>
+                        <?php // create our link now that the post is setup ?>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <?php echo '<hr/>'; ?>
+
+                    <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+                <?php }
+            }// done the foreach statement
+
+            if($display == 'list') {
+                // loop through the categries
+                foreach ($cats as $cat) {
+                    // setup the cateogory ID
+                    $cat_id = $cat->term_id;
+                    // Make a header for the cateogry
+                    echo "<h2>" . $cat->name . "</h2>";
+                    // create a custom wordpress query
+                    query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
+                    // start the wordpress loop!
+                    if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+                        <?php // create our link now that the post is setup ?>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <?php echo '<hr/>'; ?>
+
+                    <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+                <?php }
+            }// done the foreach statement
+
+            if($display == 'box') {
+                // loop through the categries
+                foreach ($cats as $cat) {
+                    // setup the cateogory ID
+                    $cat_id = $cat->term_id;
+                    // Make a header for the cateogry
+                    echo "<h2>" . $cat->name . "</h2>";
+                    // create a custom wordpress query
+                    query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
+                    // start the wordpress loop!
+                    if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+                        <?php // create our link now that the post is setup ?>
+                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <?php echo '<hr/>'; ?>
+
+                    <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+                <?php }
+            }// done the foreach statement
+            ?>
+
+
 
         </main><!-- #main -->
     </div><!-- #primary -->
