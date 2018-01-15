@@ -55,15 +55,18 @@ get_header(); ?>
                 // start the wordpress loop!
                 if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+            <div class="edsize" style="margin-bottom: 5%">
+                    <a href="<?php the_permalink();?>">
                     <div class="img">
                         <?php $image = get_field('thumbnail'); ?>
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:20%;"/>
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:30%;"/>
                     </div>
 
                     <?php // create our link now that the post is setup ?>
-                    <a href="<?php the_permalink();?>"><?php the_title(); ?></a>
+                    <a class="editions_item" href="<?php the_permalink();?>"><?php the_title(); ?></a>
                     <?php echo '<hr/>'; ?>
-
+                    </a>
+            </div>
                 <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
             <?php } // done the foreach statement ?>
 

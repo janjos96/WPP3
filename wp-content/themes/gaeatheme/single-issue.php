@@ -71,8 +71,13 @@ get_header(); ?>
 
                     endwhile; // End of the loop.
                     ?>
+
+                    <?php $product = get_page_by_title( get_the_title(), OBJECT, 'product' ); ?>
+                    <a href="<?php echo get_permalink( $product->ID ); ?>">Buy Now</a>
+
                 </div>
             </div>
+
 
 
         </main><!-- #main -->
