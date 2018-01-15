@@ -73,7 +73,7 @@ get_header(); ?>
                     ?>
 
                     <?php $product = get_page_by_title( get_the_title(), OBJECT, 'product' ); ?>
-                    <a href="<?php echo get_permalink( $product->ID ); ?>">Buy Now</a>
+                    <a class="buynow" href="<?php echo get_permalink( $product->ID ); ?>">Buy Now</a>
 
                 </div>
             </div>
