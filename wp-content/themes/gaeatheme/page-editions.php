@@ -25,7 +25,7 @@ get_header(); ?>
         <br>
         <br>
 
-    <div id="primary" class="content-area">
+    <div id="primary" >
         <main id="main" class="site-main">
 
             <?php
@@ -89,6 +89,9 @@ get_header(); ?>
 
         </main><!-- #main -->
     </div><!-- #primary -->
-
+    </div>
+    </div>
+    </div>
+</div>
 
     <?php get_footer(); ?>
