@@ -40,17 +40,17 @@ get_header(); ?>
                 <p>Fell free to contact us anytime.</p>
 
                 <br>
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <p><b>Address:</b></p>
                 <p> Street Indústria do Papel, Nº 104 <br>
                     3305-096 - Coimbra</p><br>
-                <i class="fa fa-phone" aria-hidden="true"></i>
+              <p><b>Phone:</b></p>
                 <p> 21 239 329 1323</p>
 
 
 
             </div>
             <div class="emailform">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                <p>Email:</p>
                 <form action="envia.php" method="POST">
                     <input type="text" name="name" placeholder="Name" required><br>
                     <input type="text" name="email" placeholder="Email" required><br>
