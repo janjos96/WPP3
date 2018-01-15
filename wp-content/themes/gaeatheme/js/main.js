@@ -43,6 +43,12 @@ $(document).ready(function () {
 
     if (window.innerWidth < 600) {
 
+        $("#primary").find(".row").removeClass("row");
+        $("#primary").find(".col-4").removeClass("col-4");
+        $("#primary").find(".col-6").removeClass("col-6");
+
+
+
         $("#navb ").css(" display", "none");
         $("#gaeacontainer").css("display", "none");
 
