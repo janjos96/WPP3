@@ -22,6 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
+<br>
+<br>
+
 <?php
 	/**
 	 * woocommerce_before_single_product hook.
