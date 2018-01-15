@@ -42,18 +42,36 @@ get_header(); ?>
             endwhile; // End of the loop.
             ?>
 
-            <div class="img">
-                <?php $image = get_field('thumbnail'); ?>
-                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+            <div class="row">
+                <div class="img" style="width:100%; padding:5%;">
+                    <?php $image = get_field('gif_1'); ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%"/>
+                </div>
             </div>
 
-            <?php
-            while ( have_posts() ) : the_post();
+            <div class="row">
+                <div class="img" style="width:100%; padding:5%;">
+                    <?php $image = get_field('gif_2'); ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%"/>
+                </div>
+            </div>
 
-                get_template_part( 'template-parts/content', 'description' );
+            <div class="row">
+                <div class="img col-6" style="width:100%; padding:5%;">
+                    <?php $image = get_field('gif_3'); ?>
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%"/>
+                </div>
+                <div class="text col-6"" style="width:100%; padding:5%;">
+                    <?php
+                    while ( have_posts() ) : the_post();
 
-            endwhile; // End of the loop.
-            ?>
+                        get_template_part( 'template-parts/content', 'description' );
+
+                    endwhile; // End of the loop.
+                    ?>
+                </div>
+            </div>
+
 
         </main><!-- #main -->
     </div><!-- #primary -->
