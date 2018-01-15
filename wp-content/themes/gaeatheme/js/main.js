@@ -44,6 +44,7 @@ $(document).ready(function () {
     if (window.innerWidth < 600) {
 
         $("#navb ").css(" display", "none");
+        $("#gaeacontainer").css("display", "none");
 
 
         var count = 0;
