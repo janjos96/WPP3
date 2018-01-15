@@ -271,7 +271,7 @@ get_header(); ?>
                             // start the wordpress loop!
                             if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                                <div class="edsize" style="margin-bottom: 5%">
+                                <div class="edsize" style="margin-bottom: 5%; display">
                                     <a href="<?php the_permalink();?>">
                                     <?php $image = get_field('thumbnail'); ?>
                                     <img class="editionsphoto" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
