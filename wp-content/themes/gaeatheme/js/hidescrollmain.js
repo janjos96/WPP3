@@ -4,6 +4,7 @@ $(document).ready(function () {
 
 
         $("#navb").css("visibility", "hidden");
+    $("#gaeacontainer").css("display", "none");
 
 
         $(".scrollbar").scroll(function () {
