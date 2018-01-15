@@ -36,7 +36,34 @@ get_header(); ?>
             endwhile; // End of the loop.
             ?>
 
+            <div id="address">
+                <p>Fell free to contact us anytime.</p>
+
+                <br>
+                <p><b>Address:</b></p>
+                <p> Street Indústria do Papel, Nº 104 <br>
+                    3305-096 - Coimbra</p><br>
+              <p><b>Phone:</b></p>
+                <p> 21 239 329 1323</p>
+
+
+
+            </div>
+            <div class="emailform">
+                <p>Email:</p>
+                <form action="envia.php" method="POST">
+                    <input type="text" name="name" placeholder="Name" required><br>
+                    <input type="text" name="email" placeholder="Email" required><br>
+                    <input id="messageBox" type="text" name="message" placeholder="Message" required><br>
+                    <input class="inputButton" type="submit" value="Send">
+                    <input class="inputButton" type="reset" value="Reset">
+                </form>
+            </div>
+
         </main><!-- #main -->
+
+
+
     </div><!-- #primary -->
 
 
