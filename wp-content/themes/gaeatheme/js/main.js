@@ -164,6 +164,15 @@ $(document).ready(function () {
 
     //   }
 
+    $("#yfmimage").hover(function(){
+        $("#yfmtext").show();
+    });
+    $("#yfmtext").hover(function(){
+        $("#yfmtext").show();
+    }, function () {
+        $("#yfmtext").hide();
+    });
+
 
 });
 

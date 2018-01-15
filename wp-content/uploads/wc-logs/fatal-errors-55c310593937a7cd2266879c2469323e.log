@@ -6,3 +6,7 @@ Stack trace:
 #3 {main}
   thrown
 
+2018-01-15T05:56:59+00:00 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 125280000 bytes)
+
+2018-01-15T05:57:15+00:00 CRITICAL Allowed memory size of 268435456 bytes exhausted (tried to allocate 125280000 bytes)
+

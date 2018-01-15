@@ -99,23 +99,35 @@ get_header(); ?>
             }// done the foreach statement
 
             if($display == 'box') {
-                // loop through the categries
-                foreach ($cats as $cat) {
-                    // setup the cateogory ID
-                    $cat_id = $cat->term_id;
-                    // Make a header for the cateogry
-                    echo "<h2>" . $cat->name . "</h2>";
-                    // create a custom wordpress query
-                    query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
-                    // start the wordpress loop!
-                    if (have_posts()) : while (have_posts()) : the_post(); ?>
+            // get all the categories from the database
+            $cats = get_terms( 'category', array( 'name__like' => 'issue '));
 
-                        <?php // create our link now that the post is setup ?>
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        <?php echo '<hr/>'; ?>
+            // loop through the categries
+            foreach ($cats as $cat) {
+            // setup the cateogory ID
+            $cat_id = $cat->term_id;
+            // Make a header for the cateogry
+            echo "<h4 style='float: right'>" . $cat->name . "</h4>";
+            echo '<hr style="background-color:black; height:3px">';
+            // create a custom wordpress query
+            query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
+            // start the wordpress loop!
+            if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                    <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
-                <?php }
+            <?php $grid_item = "grid-item ".get_field('grid_item'); $img = get_field('thumbnail');
+            echo "<div class='$grid_item' style='background-image: url(".$img['url'].");'> " ?>
+
+            <div class="index_titles"><?php the_title(); ?><br><br>
+                <div class="viewmore">
+                    I tend to view the whole disaster as an opportunity to try stuff.<br><br>
+
+                    <a href="<?php the_permalink(); ?>" >View More</a>
+                </div>
+            </div>
+    </div>
+
+        <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+        <?php }
             }// done the foreach statement
             ?>
 

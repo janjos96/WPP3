@@ -78,181 +78,40 @@ get_header(); ?>
 
                         <div class="grid">
 
-                            <div class="grid-item grid-item--width2 a1">
+                                    <?php
+                                    // get all the categories from the database
+                                    $cats = get_terms( 'category', array( 'name__like' => 'issue '));
 
-                                <div class="index_titles">Apocalipse Juggernaut, Hello!<br><br>
-                                    <div class="viewmore">
-                                        I tend to view the whole disaster as an opportunity to try stuff.<br><br>
+                                        // loop through the categries
+                                        foreach ($cats as $cat) {
+                                            // setup the cateogory ID
+                                            $cat_id = $cat->term_id;
+                                            // create a custom wordpress query
+                                            query_posts("cat=$cat_id&posts_per_page=100&meta_key=index&orderby=meta_value_num&order=ASC");
+                                            // start the wordpress loop!
+                                            if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
+                                                <?php $grid_item = "grid-item ".get_field('grid_item'); $img = get_field('thumbnail');
+                                                echo "<div class='$grid_item' style='background-image: url(".$img['url'].");'> " ?>
 
+                                                    <div class="index_titles"><?php the_title(); ?><br><br>
+                                                        <div class="viewmore">
+                                                            I tend to view the whole disaster as an opportunity to try stuff.<br><br>
 
+                                                            <a href="<?php the_permalink(); ?>" >View More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                            <div class="grid-item grid-item--height2 a2">
-                                <div class="index_titles"><br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 grid-item--height2 a3">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 grid-item--height2 a4">
-                                <div class="index_titles">Man's Role in Changing the Face of the Earth<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="grid-item grid-item--width2 grid-item--height2 a5">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 a6">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="grid-item grid-item--width2 a7">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--height2 a8">
-                                <div class="index_titles">Second Genesis<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 a9">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 a10">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--height2 a11">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 grid-item--height2 a12">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--height2 a13">
-                                <div class="index_titles">Man's Role in Changing the Face of the Earth<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--width2 a14">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-item grid-item--height2 a15">
-                                <div class="index_titles">Patterns in Nature<br><br>
-                                    <div class="viewmore">
-                                        The question is: Is my thought changing? It is and it
-                                        isn't.<br><br>
-
-                                        <a href="<?php echo get_bloginfo('template_directory'); ?>/article2.php" >View More</a>
-                                    </div>
-                                </div>
-                            </div>
+                                            <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
+                                        <?php }
+                                    ?>
 
                         </div>
 
 
                     </section>
+
 
                     <br><br><br><br><br>
                     <section class="latesteditions">
@@ -285,6 +144,7 @@ get_header(); ?>
                         <?php } // done the foreach statement ?>
 
                     </section>
+            </div>
 
 <?php get_footer(); ?>
 

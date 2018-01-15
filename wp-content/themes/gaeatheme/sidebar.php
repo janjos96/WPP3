@@ -19,7 +19,7 @@
 
     <ul>
         <li class="page_item"><span data-toggle="modal" data-target="#myModal" >about</span></li>
-        <?php wp_list_pages( '&title_li=' ); ?>
+        <?php wp_list_pages( '&title_li=&exclude=2,52,53,54,22' ); ?>
         <li><a>PT</a>/<a>ENG</a></li>
     </ul>
 

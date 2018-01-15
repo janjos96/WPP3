@@ -25,8 +25,7 @@
     float: left;
     width: 100px;
     height: 100px;
-    background-size:cover;
-    background-image: url('index_articles/mansrole.jpg');
+    background-size: cover;
     /*background: #999;*/
     border: 5px solid white;
 
@@ -70,19 +69,4 @@
     font-family: 'Noto Serif', serif;
     font-style: italic;
     text-decoration: underline;
-}
-
-.a2{
-    background-size:cover;
-    background-image: url('index_articles/mansrole.jpg');
-}
-
-.a3{
-    background-size:cover;
-    background-image: url('index_articles/mansrole.jpg');
-}
-
-.a8{
-    background-size:cover;
-    background-image: url('index_articles/Untitled-5.gif');
 }
