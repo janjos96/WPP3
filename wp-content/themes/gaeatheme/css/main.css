@@ -461,12 +461,6 @@ nav ul {
     width: 200px;
 
 }
-.edsize{
-    float: left;
-    margin-right: 20px;
-    margin-top: 20px;
-
-}
 
 /*---------------------------------------------------*/
 
@@ -764,4 +758,9 @@ body.modal-open .scrollbar{
 .close {
     font-size: 50px;
     display:block;
+}
+
+.black-row {
+    height:3px;
+    background-color: black;
 }

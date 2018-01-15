@@ -162,6 +162,11 @@ function custom_query_vars_filter($vars) {
 }
 add_filter( 'query_vars', 'custom_query_vars_filter' );
 
+function more_posts() {
+    global $wp_query;
+    return $wp_query->current_post + 1 < $wp_query->post_count;
+}
+
 
 //WOOCOMMERCE
 

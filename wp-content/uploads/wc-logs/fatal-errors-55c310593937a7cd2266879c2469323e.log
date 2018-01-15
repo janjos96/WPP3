@@ -1,0 +1,8 @@
+2018-01-15T02:03:01+00:00 CRITICAL Uncaught Error: Call to a member function have_posts() on array in /Applications/XAMPP/xamppfiles/htdocs/wpp3/wp-content/themes/gaeatheme/page-editions.php:51
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/wpp3/wp-includes/template-loader.php(74): include()
+#1 /Applications/XAMPP/xamppfiles/htdocs/wpp3/wp-blog-header.php(19): require_once('/Applications/X...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/wpp3/index.php(17): require('/Applications/X...')
+#3 {main}
+  thrown
+

@@ -31,13 +31,7 @@ get_header(); ?>
             <?php
             while ( have_posts() ) : the_post();
 
-                get_template_part( 'template-parts/content', 'page' );
-
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;
-
+                get_template_part( 'template-parts/content', 'title' );
             endwhile; // End of the loop.
             ?>
 
@@ -55,18 +49,41 @@ get_header(); ?>
                 // start the wordpress loop!
                 if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-            <div class="edsize" style="margin-bottom: 5%">
-                    <a href="<?php the_permalink();?>">
-                    <div class="img">
-                        <?php $image = get_field('thumbnail'); ?>
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:30%;"/>
+                    <div class="row" style="margin-bottom: 5%; margin-top: 5%;">
+                        <div class="row">
+                            <div class="col-4">
+                                <?php $image = get_field('thumbnail'); ?>
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
+                            </div>
+                            <div class="col-4">
+                                <?php // create our link now that the post is setup ?>
+                                <h5><?php the_title(); ?></h5>
+                                <?php $description = get_field('small_description');
+                                echo "<p> $description </p>"?>
+                                <a href="<?php the_permalink();?>" >View More</a>
+                            </div>
+                            <div class="col-4">
+                                <?php $image = get_field('gif_3'); ?>
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <?php $image = get_field('gif_1'); ?>
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
+                            </div>
+                            <div class="col-6">
+                                <?php $image = get_field('gif_2'); ?>
+                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
+                            </div>
+                        </div>
                     </div>
+                    <?php
+                    if ( more_posts() != 0 ) {
+                        echo '<hr class="black-row">';
+                    }
+                    ?>
 
-                    <?php // create our link now that the post is setup ?>
-                    <a class="editions_item" href="<?php the_permalink();?>"><?php the_title(); ?></a>
-                    <?php echo '<hr/>'; ?>
-                    </a>
-            </div>
                 <?php endwhile; endif; // done our wordpress loop. Will start again for each category ?>
             <?php } // done the foreach statement ?>
 
