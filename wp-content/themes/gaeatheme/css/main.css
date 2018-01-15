@@ -433,6 +433,19 @@ nav ul {
 
 }
 
+.adjust{
+    margin-bottom: 10px;
+}
+
+.textoeditions{
+    margin-left: -10px;
+}
+
+.cover{
+    width:91% !important;
+}
+
+
 .buynow{
 
     padding: 15px;

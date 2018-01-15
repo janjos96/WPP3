@@ -51,18 +51,18 @@ get_header(); ?>
 
                     <div class="row" style="margin-bottom: 5%; margin-top: 5%;">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-4 adjust">
                                 <?php $image = get_field('thumbnail'); ?>
-                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
+                                <img class="cover" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 adjust" >
                                 <?php // create our link now that the post is setup ?>
-                                <h5><?php the_title(); ?></h5>
+                                <h5 class="textoeditions"><?php the_title(); ?></h5>
                                 <?php $description = get_field('small_description');
-                                echo "<p> $description </p>"?>
-                                <a href="<?php the_permalink();?>" >View More</a>
+                                echo "<p class='textoeditions'> $description </p>"?>
+                                <a class="textoeditions" href="<?php the_permalink();?>" >View More</a>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 adjust">
                                 <?php $image = get_field('gif_3'); ?>
                                 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" style="width:100%;"/>
                             </div>
