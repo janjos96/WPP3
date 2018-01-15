@@ -25,8 +25,12 @@ get_header(); ?>
 
     </div>
 
-
     <div class="col-10">
+
+        <br>
+        <br>
+        <br>
+        <br>
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
