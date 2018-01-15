@@ -101,5 +101,9 @@
 
 
 
-   
+    .emailform input{
+        width: 100%;
+
+
+    }
 }
