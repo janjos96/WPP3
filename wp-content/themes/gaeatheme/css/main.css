@@ -433,6 +433,15 @@ nav ul {
 
 }
 
+.buynow{
+
+    padding: 15px;
+    color: white;
+    float: right;
+    background-color: black;
+
+}
+
 .emailform input{
     width: 60%;
     height: 40px;
