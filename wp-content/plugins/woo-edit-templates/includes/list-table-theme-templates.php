@@ -177,7 +177,8 @@ class IO_Theme_Templates_List_Table extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'delete'    => __( 'Reset' )
+            'delete'            => __( 'Reset' ),
+            'save_to_theme'     => __( 'Save to theme' ),
         );
         return $actions;
     }
@@ -204,7 +205,20 @@ class IO_Theme_Templates_List_Table extends WP_List_Table {
                         $message = 'tre';
                     }
                 }
-
+            }
+            wp_redirect( add_query_arg( 'msg', $message, remove_query_arg(array('_wp_http_referer' ), wp_unslash( $_REQUEST['_wp_http_referer'] ) ) ) );
+            exit();
+        } elseif ( 'save_to_theme'===$this->current_action() ) {
+            check_admin_referer( 'bulk-' . sanitize_key( __( 'Templates' ) ) );
+            $message = 'tss';
+            if ( !empty( $_GET['template'] ) ) {
+                $ids = $_GET['template'];
+                foreach( $ids as $id ) {
+                    $m = IO_Theme_Templates::save_template( $id );
+                    if ( $m !== $message ) {
+                        $message = 'tse';
+                    }
+                }
             }
             wp_redirect( add_query_arg( 'msg', $message, remove_query_arg(array('_wp_http_referer' ), wp_unslash( $_REQUEST['_wp_http_referer'] ) ) ) );
             exit();

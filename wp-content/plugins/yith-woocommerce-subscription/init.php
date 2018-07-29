@@ -2,12 +2,14 @@
 /*
 Plugin Name: YITH WooCommerce Subscription
 Description: YITH WooCommerce Subscription
-Version: 1.2.0
+Version: 1.2.2
 Author: YITHEMES
 Author URI: http://yithemes.com/
 Text Domain: yith-woocommerce-subscription
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
+WC requires at least: 3.0.0
+WC tested up to: 3.4.0
 */
 
 /*
@@ -74,7 +76,7 @@ if ( !function_exists( 'yith_ywsbs_install_woocommerce_admin_notice' ) ) {
 if ( defined( 'YITH_YWSBS_VERSION' ) ) {
     return;
 }else{
-    define( 'YITH_YWSBS_VERSION', '1.2.0' );
+    define( 'YITH_YWSBS_VERSION', '1.2.2' );
 }
 
 if ( ! defined( 'YITH_YWSBS_FREE_INIT' ) ) {
@@ -111,6 +113,9 @@ if ( ! defined( 'YITH_YWSBS_SUFFIX' ) ) {
     define( 'YITH_YWSBS_SUFFIX', $suffix );
 }
 
+if ( ! defined( 'YITH_YWSBS_TEST_ON' ) ) {
+    define( 'YITH_YWSBS_TEST_ON', false );
+}
 
 if ( ! function_exists( 'yith_ywsbs_install' ) ) {
     function yith_ywsbs_install() {
@@ -159,6 +164,7 @@ function yith_ywsbs_constructor() {
 	require_once( YITH_YWSBS_INC . 'class.yith-wc-subscription-cron.php' );
 	require_once( YITH_YWSBS_INC . 'gateways/paypal/class.yith-wc-subscription-paypal.php' );
 	require_once( YITH_YWSBS_INC . 'admin/class.ywsbs-subscriptions-list-table.php' );
+	require_once( YITH_YWSBS_INC . 'class.yith-wc-subscription-privacy.php' );
 
 	if ( is_admin() ) {
         YITH_WC_Subscription_Admin();

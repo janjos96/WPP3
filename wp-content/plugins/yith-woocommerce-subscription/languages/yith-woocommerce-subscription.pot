@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Dynamic Pricing and Discounts\n"
-"POT-Creation-Date: 2017-10-16 12:45+0200\n"
+"POT-Creation-Date: 2018-05-15 12:39+0200\n"
 "PO-Revision-Date: 2015-07-06 16:59+0100\n"
 "Last-Translator: \n"
 "Language-Team: Yithemes <plugins@yithemes.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e;_n:1,2;__ngettext:1,2;"
 "__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;"
 "_nx_noop:4c,1,2\n"
@@ -47,82 +47,97 @@ msgstr ""
 msgid "Expires"
 msgstr ""
 
-#: ../includes/admin/class.ywsbs-subscriptions-list-table.php:169
+#: ../includes/admin/class.ywsbs-subscriptions-list-table.php:146
+msgid "Never"
+msgstr ""
+
+#: ../includes/admin/class.ywsbs-subscriptions-list-table.php:171
 msgid "Delete"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:109
-#: ../includes/class.yith-wc-subscription-admin.php:264
-#: ../includes/class.yith-wc-subscription-admin.php:265
+#: ../includes/class.yith-wc-subscription-admin.php:111
+#: ../includes/class.yith-wc-subscription-admin.php:271
+#: ../includes/class.yith-wc-subscription-admin.php:272
 #: ../includes/class.ywsbs-susbscription-helper.php:85
 #: ../includes/class.ywsbs-susbscription-helper.php:91
 msgid "Subscription"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:110
+#: ../includes/class.yith-wc-subscription-admin.php:112
 msgid "Create a subscription for this product"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:136
+#: ../includes/class.yith-wc-subscription-admin.php:138
 msgid "Subscription Settings"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:139
+#: ../includes/class.yith-wc-subscription-admin.php:141
 msgid "Price is per"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:151
+#: ../includes/class.yith-wc-subscription-admin.php:153
 msgid "Max length:"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:152
+#: ../includes/class.yith-wc-subscription-admin.php:154
 msgid "Leave it empty for unlimited subscription"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:154
+#: ../includes/class.yith-wc-subscription-admin.php:156
 #, php-format
 msgid "(Max: <span class=\"max-l\">%d</span>)"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:256
-#: ../includes/class.yith-wc-subscription-admin.php:327
+#: ../includes/class.yith-wc-subscription-admin.php:258
+#: ../includes/class.yith-wc-subscription-admin.php:334
 msgid "Settings"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:257
+#: ../includes/class.yith-wc-subscription-admin.php:259
+#: ../includes/class.yith-wc-subscription-privacy.php:105
 #: ../templates/admin/subscriptions-tab.php:2
 msgid "Subscriptions"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:258
-#: ../includes/class.yith-wc-subscription-admin.php:329
+#: ../includes/class.yith-wc-subscription-admin.php:263
+msgid "Privacy"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-admin.php:266
+#: ../includes/class.yith-wc-subscription-admin.php:336
 msgid "Premium Version"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:355
-#: ../includes/class.yith-wc-subscription-admin.php:401
+#: ../includes/class.yith-wc-subscription-admin.php:362
+#: ../includes/class.yith-wc-subscription-admin.php:408
 msgid "Plugin Documentation"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:405
+#: ../includes/class.yith-wc-subscription-admin.php:412
 msgid "Discovery premium version"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:409
+#: ../includes/class.yith-wc-subscription-admin.php:416
 msgid "Free Vs Premium"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:413
+#: ../includes/class.yith-wc-subscription-admin.php:420
 msgid "Premium live demo"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:417
+#: ../includes/class.yith-wc-subscription-admin.php:424
 msgid "WordPress support forum"
 msgstr ""
 
-#: ../includes/class.yith-wc-subscription-admin.php:421
+#: ../includes/class.yith-wc-subscription-admin.php:428
 #, php-format
 msgid "Changelog (current version %s)"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-cron.php:190
+msgid ""
+"The subscription was been trashed after the specific duration because was in "
+"cancelled status."
 msgstr ""
 
 #: ../includes/class.yith-wc-subscription-order.php:786
@@ -138,6 +153,65 @@ msgstr ""
 #: ../includes/class.yith-wc-subscription-order.php:937
 #, php-format
 msgid "This order has been created to renew the subscription #%d"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:62
+#: ../includes/class.yith-wc-subscription-privacy.php:78
+msgid "Customer Subscriptions"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:149
+#, php-format
+msgid "Removed personal data from subscription %s."
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:153
+#, php-format
+msgid "Personal data within subscription %s has been retained."
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:229
+msgid "Subscription Number"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:230
+msgid "Subscription Status"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:231
+msgid "Subscription Creation Date"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:232
+msgid "Subscription Total"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:233
+msgid "Items Purchased"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:234
+msgid "IP Address"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:235
+msgid "Browser User Agent"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:236
+msgid "Billing Address"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:237
+msgid "Shipping Address"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:238
+msgid "Phone Number"
+msgstr ""
+
+#: ../includes/class.yith-wc-subscription-privacy.php:239
+msgid "Email Address"
 msgstr ""
 
 #: ../includes/class.yith-wc-subscription.php:201
@@ -232,6 +306,38 @@ msgstr ""
 msgid "months"
 msgstr ""
 
+#: ../includes/functions.yith-wc-subscription.php:376
+msgid "active"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:377
+msgid "paused"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:378
+msgid "pending"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:379
+msgid "overdue"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:380
+msgid "trial"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:381
+msgid "cancelled"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:382
+msgid "expired"
+msgstr ""
+
+#: ../includes/functions.yith-wc-subscription.php:383
+msgid "suspended"
+msgstr ""
+
 #: ../includes/gateways/paypal/class.yith-wc-subscription-paypal.php:161
 #, php-format
 msgid "Order %s"
@@ -250,13 +356,13 @@ msgstr ""
 msgid "YSBS - IPN subscription cancelled for the order."
 msgstr ""
 
-#: ../init.php:45
+#: ../init.php:47
 msgid ""
 "You can't activate the free version of YITH WooCommerce Subscription while "
 "you are using the premium one."
 msgstr ""
 
-#: ../init.php:67 ../init.php:136
+#: ../init.php:69 ../init.php:141
 msgid ""
 "YITH WooCommerce Subscription is enabled but not effective. It requires "
 "WooCommerce in order to work."
@@ -268,6 +374,63 @@ msgstr ""
 
 #: ../plugin-options/general-options.php:14
 msgid "Enable Subscription"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:8
+msgid "Privacy settings"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:14
+msgid "Account erasure requests"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:15
+msgid "Remove personal data from subscriptions"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:16
+#, php-format
+msgid ""
+"When handling an <a href=\"%s\">account erasure request</a>, should personal "
+"data within subscriptions be retained or removed?.\n"
+"<br>Note: All the subscriptions will change the status to cancelled if the "
+"personal data will be removed."
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:30
+msgid "Personal data retention"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:31
+msgid ""
+"Choose how long to retain personal data when it's no longer needed for "
+"processing. Leave the following options blank to retain this data "
+"indefinitely."
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:36
+msgid "Retain pending subscriptions"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:37
+msgid ""
+"Pending subscriptions are unpaid and may have been abandoned by the "
+"customer. They will be trashed after the specified duration."
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:40
+#: ../plugin-options/privacy-options.php:48
+msgid "N/A"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:44
+msgid "Retain cancelled subscriptions"
+msgstr ""
+
+#: ../plugin-options/privacy-options.php:45
+msgid ""
+"Cancelled subscriptions are disable subscriptions that can't be reactivated "
+"by the customer. They will be trashed after the specified duration."
 msgstr ""
 
 #: ../templates/admin/premium.php:253 ../templates/admin/premium.php:507

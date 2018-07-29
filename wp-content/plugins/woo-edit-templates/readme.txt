@@ -1,10 +1,10 @@
 === Edit WooCommerce Templates ===
-Contributors: ioannup, ivanup
+Contributors: ioannup
 Donate link:
 Tags: woocommerce, template, edit, edit templates, woo, edit woocommerce templates, woocommerce edit template
-Requires at least: 4.4
-Tested up to: 4.7
-Stable tag: 1.0.0.1
+Requires at least: 4.9
+Tested up to: 5.2
+Stable tag: 1.0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,14 +31,20 @@ The plugin helps you edit WooCommerce templates files for your Current Theme
 
 = Minimum Requirements =
 
-* WordPress 3.8 or greater
+* WordPress 4.9 or greater
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 
 == Changelog ==
+= 1.0.3 - 2018-02-24
+*Added support Child Themes
 
-= 1.0.0.1 - 2016-04-22
-*Small changes
+== Changelog ==
+= 1.0.2 - 2018-01-21
+*Added Bulk for saving to Theme
+
+= 1.0.1 - 2018-01-21
+*Added Syntax Highlighting
 
 = 1.0.0 - 2017-04-16
-*First version
+*The first version
