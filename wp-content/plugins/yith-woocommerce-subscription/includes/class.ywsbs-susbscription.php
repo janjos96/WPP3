@@ -172,6 +172,17 @@ if ( !class_exists( 'YWSBS_Subscription' ) ) {
 		    return update_post_meta( $this->id, $property, $value );
 	    }
 
+	    /**
+	     * get function.
+	     *
+	     * @param string $property
+	     * @param mixed  $value
+	     *
+	     * @return bool|int
+	     */
+	    public function get( $property ) {
+		    return isset( $this->$property ) ? $this->$property : '';
+	    }
 
 	    public function __isset( $key ) {
 		    if ( ! $this->id ) {
@@ -230,7 +241,8 @@ if ( !class_exists( 'YWSBS_Subscription' ) ) {
          */
         function update_subscription_meta( $meta ){
             foreach( $meta as $key => $value ){
-                update_post_meta( $this->id, '_'.$key, $value);
+            	$key = ( substr($key, 0, 1) == '_' ) ? $key :  '_'.$key;
+	            update_post_meta( $this->id, $key, $value);
             }
         }
 
@@ -420,6 +432,117 @@ if ( !class_exists( 'YWSBS_Subscription' ) ) {
 		    return false;
 
 	    }
+
+	    /**
+	     * Get the order object.
+	     *
+	     * @return
+	     * @author Emanuela Castorina <emanuela.castorina@yithemes.com>
+	     */
+	    public function get_order(){
+		    $this->order =  ( $this->order instanceof WC_Order ) ? $this->order : wc_get_order( $this->_order_id );
+
+		    return $this->order;
+	    }
+
+	    /**
+	     * Get billing customer email
+	     *
+	     * @return string
+	     */
+	    public function get_billing_email() {
+		    $billing_email = ! empty( $this->_billing_email ) ? $this->_billing_email : yit_get_prop( $this->get_order(), '_billing_email');
+		    return apply_filters( 'ywsbs_customer_billing_email', $billing_email, $this );
+	    }
+
+	    /**
+	     * Get billing customer email
+	     *
+	     * @return string
+	     */
+	    public function get_billing_phone() {
+		    $billing_phone = ! empty( $this->_billing_phone ) ? $this->_billing_phone : yit_get_prop( $this->get_order(), '_billing_phone' );
+		    return apply_filters( 'ywsbs_customer_billing_phone', $billing_phone, $this );
+	    }
+
+	    /**
+	     * Get subscription customer billing or shipping fields.
+	     *
+	     * @param string  $type
+	     * @param boolean $no_type
+	     *
+	     * @return array
+	     */
+	    public function get_address_fields( $type = 'billing', $no_type = false, $prefix = '' ) {
+
+		    $fields = array();
+
+		    $value_to_check = '_'.$type.'_first_name';
+		    if( ! isset( $this->$value_to_check ) ){
+			    $fields = $this->get_address_fields_from_order( $type, $no_type, $prefix );
+		    }else{
+			    $order = $this->get_order();
+			    $meta_fields = $order->get_address( $type );
+
+			    foreach ( $meta_fields as $key => $value ) {
+				    $field_name           = '_' . $type . '_' . $key;
+				    $field_key            = $no_type ? $key : $type . '_' . $key;
+				    $fields[ $prefix.$field_key ] = $this->$field_name;
+			    }
+		    }
+
+		    return $fields;
+	    }
+
+	    /**
+	     * Return the fields billing or shipping of the parent order
+	     *
+	     * @param string $type
+	     * @param bool $no_type
+	     *
+	     * @return array
+	     * @author Emanuela Castorina <emanuela.castorina@yithemes.com>
+	     */
+	    public function get_address_fields_from_order( $type = 'billing', $no_type = false, $prefix = '' ) {
+		    $fields = array();
+		    $order  = $this->get_order();
+		    if ( $order ) {
+			    $meta_fields = $order->get_address( $type );
+
+			    if ( is_array( $meta_fields ) ) {
+				    foreach ( $meta_fields as $key => $value ) {
+					    $field_key            = $no_type ? $key : $type . '_' . $key;
+					    $fields[ $prefix.$field_key ] = $value;
+				    }
+			    }
+		    }
+
+		    return $fields;
+	    }
+
+	    /**
+	     * Return if the subscription can be cancelled by user
+	     *
+	     * @return  bool
+	     * @since   1.0.0
+	     */
+	    public function can_be_cancelled() {
+		    $status = array( 'pending', 'cancelled' );
+
+		    //the administrator and shop manager can switch the status to cancelled
+		    $post_type_object = get_post_type_object( YITH_WC_Subscription()->post_name );
+		    if ( current_user_can( $post_type_object->cap->delete_post, $this->ID ) ) {
+			    $return = true;
+		    } else if ( ! in_array( $this->status, $status ) && get_option( 'ywsbs_allow_customer_cancel_subscription' ) == 'yes' ) {
+			    $return = true;
+		    } else {
+			    $return = false;
+		    }
+
+		    return apply_filters( 'ywsbs_can_be_cancelled', $return, $this );
+	    }
+
+
 
     }
 

@@ -3,12 +3,12 @@
 Plugin Name: Edit WooCommerce Templates
 Plugin URI:
 Description: The plugin helps you edit WooCommerce templates files for your Current Theme
-Version: 1.0.0
+Version: 1.0.3.1
 Author: ioannup
-Author URI:
+Author URI: https://www.upwork.com/freelancers/~0165d3dc4b2ffbbd7d
 License: GPLv2
-Requires at least: 4.4
-Tested up to: 4.7
+Requires at least: 4.9
+Tested up to: 5.2
 */
 
 
@@ -67,7 +67,7 @@ class IO_Theme_Templates {
 
 
     public static function set_templates_exists() {
-        self::$templates_exists = WC_Admin_Status::scan_template_files( get_template_directory() . '/woocommerce' );
+        self::$templates_exists = WC_Admin_Status::scan_template_files( get_stylesheet_directory() . '/woocommerce' );
     }
 
 
@@ -108,8 +108,63 @@ class IO_Theme_Templates {
     protected function __construct() {
         add_action( 'admin_menu', array( $this, 'register_woocommerce_submenu_page' ) );
         add_action( 'admin_init', array( $this, 'request_action' ) );
+        add_action( 'wp_ajax_wooet_dismiss_syntax_highlighting_description', array( $this, 'dismiss_highlighting_description' ) );
+        add_action( 'wp_ajax_wooet_child_theme', array( $this, 'wooet_child_theme' ) );
+        if ( 'wc-theme_templates' === filter_input( INPUT_GET, 'page' ) && 'edit' === filter_input( INPUT_GET, 'action' ) ) {
+            add_action( 'admin_notices', array( $this, 'admin_syntax_highlighting_notice' ) );
+        }
+        if ( 'wc-theme_templates' === filter_input( INPUT_GET, 'page' ) ) {
+            add_action( 'admin_notices', array( $this, 'admin_child_theme_notice' ) );
+        }
     }
 
+    /**
+     * hide admin notice
+     */
+    function dismiss_highlighting_description() {
+        update_user_meta( get_current_user_id(), 'wooet_syntax_highlighting_description', '1' );
+        exit;
+    }
+
+    /**
+     * hide admin notice
+     */
+    function wooet_child_theme() {
+        update_user_meta( get_current_user_id(), 'wooet_child_theme', '1' );
+        exit;
+    }
+
+    /**
+     * Show admin notice for new syntax highlighting
+     */
+    function admin_syntax_highlighting_notice() {
+        if ( !get_user_meta( get_current_user_id(), 'wooet_syntax_highlighting_description', true ) ) {
+            wp_enqueue_script( 'wooet_template_edit', plugins_url( 'asset/js/template_edit.js', __FILE__ ), array( 'jquery' ), false, true );
+        ?>
+        <div class="notice notice-success is-dismissible wooet-syntax_highlighting_description-notice" >
+            <p><?php printf( __( 'We introduce you Syntax Highlighting for better editing Woocommerce templates. You can enable/disable this option %shere%s' ), '<a href="' . get_admin_url( null, 'profile.php' ) . '" target="_blank">' ,'</a>' ); ?></p>
+        </div>
+
+
+        <?php
+        }
+    }
+
+    /**
+     * Show admin notice for child theme
+     */
+    function admin_child_theme_notice() {
+        if ( is_child_theme() && !get_user_meta( get_current_user_id(), 'wooet_child_theme', true ) ) {
+            wp_enqueue_script( 'wooet_template_edit', plugins_url( 'asset/js/template_edit.js', __FILE__ ), array( 'jquery' ), false, true );
+        ?>
+        <div class="notice notice-success is-dismissible wooet-child_theme-notice" >
+            <p><?php printf( __( 'You use a child theme. Your Parent theme can also override WooCommerce templates. If you want to manage it for the Parent theme - switch to it and after managing it - switch back to the child theme.' ), '<a href="' . get_admin_url( null, 'profile.php' ) . '" target="_blank">' ,'</a>' ); ?></p>
+        </div>
+
+
+        <?php
+        }
+    }
 
     function register_woocommerce_submenu_page() {
         $this->can_edit = ( !defined( 'DISALLOW_FILE_EDIT' ) || DISALLOW_FILE_EDIT !== true ) && current_user_can( 'edit_themes' );
@@ -143,6 +198,23 @@ class IO_Theme_Templates {
             if ( !in_array( $id, self::get_all_templates() ) ) {
                 self::filesystem_error( __(  "There are not found such Template in WooCommerce" ) );
             }
+
+            $templates_exists = self::get_templates_exists();
+            $in_theme = in_array( $id, $templates_exists );
+
+            //Code Editor
+            $real_file = self::get_full_path( $id, $in_theme );
+            // Enqueue code editor and settings for manipulating HTML.
+            $syntax_highlighting = wp_enqueue_code_editor( array( 'file' => $real_file ) );
+            // Bail if user disabled CodeMirror.
+            if ( false !== $syntax_highlighting ) {
+                wp_add_inline_script( 'code-editor', sprintf( 'jQuery( function( $ ) { wp.codeEditor.initialize( "newcontent", %s ); } )', wp_json_encode( $syntax_highlighting ) ) );
+                wp_add_inline_script(
+                    'wp-codemirror',
+                    'window.CodeMirror = wp.CodeMirror;'
+                );
+            }
+
             add_meta_box( 'io-theme-template_publish', __( 'Publish' ),  array( $this, 'publish_meta_box' ), 'io-woocommerce-edit-template-publish', 'side', 'high' );
             require_once( plugin_dir_path( __FILE__ ) . 'includes/template_edit.php' );
         } else {
@@ -193,15 +265,11 @@ class IO_Theme_Templates {
      *
      * @param string $path
      * @param bool $in_theme
-     * @return string
+     * @param bool $hide_error
+     * @return string|bool
      */
-    function get_template_content( $path, $in_theme ) {
-        if ( $in_theme ) {
-            $template_dir = get_template_directory() . '/woocommerce';
-        } else {
-            $template_dir = WC()->plugin_path() . '/templates';
-        }
-        $full_path = $template_dir . '/' . $path;
+    static function get_template_content( $path, $in_theme, $hide_error = false ) {
+        $full_path = self::get_full_path( $path, $in_theme );
 
         global $wp_filesystem;
 
@@ -218,10 +286,29 @@ class IO_Theme_Templates {
                 } else {
                     return $text;
                 }
-            } else {
+            } elseif ( !$hide_error ) {
                 self::filesystem_error( __( "File doesn't exist" ) );
             }
         }
+    }
+
+
+    /**
+     * Get full path based on template name
+     *
+     * @param string $path
+     * @param bool $in_theme
+     * @return string
+     */
+    static function get_full_path( $path, $in_theme ) {
+        if ( $in_theme ) {
+            $template_dir = get_stylesheet_directory() . '/woocommerce';
+        } else {
+            $template_dir = WC()->plugin_path() . '/templates';
+        }
+        $full_path = $template_dir . '/' . $path;
+
+        return $full_path;
     }
 
 
@@ -239,6 +326,8 @@ class IO_Theme_Templates {
 
     static function connect_fs( $url, $method, $context, $fields = null ) {
         global $wp_filesystem;
+
+		$method = 'direct';
 
         if ( false === ($credentials = request_filesystem_credentials( $url, $method, false, $context, $fields )) ) {
             self::filesystem_error( __( "Cannot initialize filesystem" ) );
@@ -279,9 +368,18 @@ class IO_Theme_Templates {
 
 
 
-    private static function save_template( $path, $content = '' ) {
-        $theme_path = get_template_directory();
+    static function save_template( $path, $content = null ) {
+        $theme_path = get_stylesheet_directory();
         $full_path = $theme_path . '/woocommerce/' . $path;
+
+        if ( is_null( $content ) ) {
+            $content = self::get_template_content( $path, true, true );
+            if ( is_null( $content ) ) {
+                $content = self::get_template_content( $path, false );
+            } else {
+                return 'tsu';
+            }
+        }
 
         global $wp_filesystem;
 
@@ -301,7 +399,7 @@ class IO_Theme_Templates {
         global $wp_filesystem;
 
         $url = '';
-        $fs_path = get_template_directory();
+        $fs_path = get_stylesheet_directory();
         $form_fields = array("data");
         if( self::connect_fs( $url, "", $fs_path, $form_fields ) ) {
 
@@ -323,7 +421,7 @@ class IO_Theme_Templates {
 
 
     static function delete_template( $path ) {
-        $full_path = get_template_directory() . '/woocommerce/' . $path;
+        $full_path = get_stylesheet_directory() . '/woocommerce/' . $path;
 
         global $wp_filesystem;
 
@@ -361,6 +459,9 @@ class IO_Theme_Templates {
                     break;
                 case 'tsu':
                     echo '<div id="message" class="error"><p>' . __("Can't rewrite Template. Please, check Theme folder permissions") . '</p></div>';
+                    break;
+                case 'tse':
+                    echo  '<div id="message" class="error"><p>' . __("Not all selected Templates have been saved to Theme. Please, check Theme folder permissions or maybe some templates already exist there. If you really want to rewrite theirs - please, reset theirs at first.") . '</p></div>';
                     break;
             }
         }

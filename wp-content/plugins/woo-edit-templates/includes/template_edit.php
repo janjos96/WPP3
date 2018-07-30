@@ -6,9 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( empty( $id ) ) {
     exit;
 }
-$templates_exists = IO_Theme_Templates::get_templates_exists();
-$status = in_array( $id, $templates_exists );
-$template_content = IO_Theme_Templates::get_template_content( $id, $status );
+$template_content = IO_Theme_Templates::get_template_content( $id, $in_theme );
 ?>
 
 <div class="wrap">
@@ -32,14 +30,18 @@ $template_content = IO_Theme_Templates::get_template_content( $id, $status );
                         <div class="postarea">
 
                         <?php
-                            wp_editor( $template_content, 'data[content]', array(
-                                    '_content_editor_dfw' => true,
-                                    'drag_drop_upload' => true,
-                                    'tabfocus_elements' => 'content-html,save-post',
-                                    'editor_height' => 500,
-                                    'tinymce' => 0,
-                            ) );
+                            if ( false === $syntax_highlighting ) {
+                                wp_editor( $template_content, 'data[content]', array(
+                                        '_content_editor_dfw' => true,
+                                        'drag_drop_upload' => true,
+                                        'tabfocus_elements' => 'content-html,save-post',
+                                        'editor_height' => 500,
+                                        'tinymce' => 0,
+                                ) );
+                            } else {
                         ?>
+                            <textarea cols="70" rows="25" name="data[content]" id="newcontent" aria-describedby="newcontent-description"><?php echo $template_content; ?></textarea>
+                        <?php } ?>
 
                         </div>
                     </div>
@@ -47,7 +49,7 @@ $template_content = IO_Theme_Templates::get_template_content( $id, $status );
                 <div id="postbox-container-1" class="postbox-container">
 
                     <?php
-                        do_meta_boxes( 'io-woocommerce-edit-template-publish', 'side', array( 'id' => $id, 'status' => $status )  ) ;
+                        do_meta_boxes( 'io-woocommerce-edit-template-publish', 'side', array( 'id' => $id, 'status' => $in_theme )  ) ;
                     ?>
                  </div>
             </div><!-- #post-body -->

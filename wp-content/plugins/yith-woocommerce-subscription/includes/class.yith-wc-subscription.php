@@ -70,7 +70,7 @@ if ( !class_exists( 'YITH_WC_Subscription' ) ) {
             YWSBS_Subscription_Cart();
             YWSBS_Subscription_Paypal();
 
-
+	        yith_check_privacy_enabled() && YWSBS_Subscription_Privacy( true );
             // Change product prices
             add_filter('woocommerce_get_price_html', array($this, 'change_price_html'), 10, 2);
 

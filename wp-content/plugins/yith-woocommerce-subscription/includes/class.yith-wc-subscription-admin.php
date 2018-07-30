@@ -37,7 +37,7 @@ if ( !class_exists( 'YITH_WC_Subscription_Admin' ) ) {
         /**
          * @var string Premium version landing link
          */
-        protected $_premium_landing = 'http://yithemes.com/themes/plugins/yith-woocommerce-subscription/';
+        protected $_premium_landing = 'https://yithemes.com/themes/plugins/yith-woocommerce-subscription/';
 
         /**
          * @var string Panel page
@@ -47,7 +47,7 @@ if ( !class_exists( 'YITH_WC_Subscription_Admin' ) ) {
         /**
          * @var string Doc Url
          */
-        public $doc_url = 'https://yithemes.com/docs-plugins/yith-woocommerce-subscription/';
+        public $doc_url = 'https://docs.yithemes.com/yith-woocommerce-subscription/';
 
         public $cpt_obj_subscriptions;
 
@@ -89,6 +89,8 @@ if ( !class_exists( 'YITH_WC_Subscription_Admin' ) ) {
             //custom fields for single product
             add_action( 'woocommerce_product_options_general_product_data', array( $this, 'add_custom_fields_for_single_products' ) );
             add_action( 'woocommerce_process_product_meta', array( $this, 'save_custom_fields_for_single_products' ), 10, 2 );
+	        //Sanitize the options before that are saved
+	        add_filter( 'woocommerce_admin_settings_sanitize_option', array( $this, 'sanitize_value_option' ), 20, 3);
 
         }
 
@@ -255,8 +257,13 @@ if ( !class_exists( 'YITH_WC_Subscription_Admin' ) ) {
             $admin_tabs = array(
                 'general'   => __( 'Settings', 'yith-woocommerce-subscription' ),
                 'subscriptions'     => __( 'Subscriptions', 'yith-woocommerce-subscription' ),
-                'premium' => __( 'Premium Version',  'yith-woocommerce-subscription' )
             );
+
+	        if( yith_check_privacy_enabled() ){
+		        $admin_tabs['privacy'] = __( 'Privacy', 'yith-woocommerce-subscription' );
+	        }
+
+	        $admin_tabs['premium'] = __( 'Premium Version',  'yith-woocommerce-subscription' );
 
             $args = array(
                 'create_menu_page' => true,
@@ -422,6 +429,27 @@ if ( !class_exists( 'YITH_WC_Subscription_Admin' ) ) {
                 ),
             );
         }
+
+	    /**
+	     * Sanitize the option of type 'relative_date_selector' before that are saved.
+	     *
+	     * @param $value
+	     * @param $option
+	     * @param $raw_value
+	     *
+	     * @return array
+	     * @since 1.4
+	     * @author Emanuela Castorina <emanuela.castorina@yithemes.com>
+	     */
+	    public function sanitize_value_option(  $value, $option, $raw_value  ) {
+
+		    if ( isset( $option['id'] ) && in_array( $option['id'], array( 'ywsbs_trash_pending_subscriptions', 'ywsbs_trash_cancelled_subscriptions' ) ) ) {
+			    $raw_value = maybe_unserialize( $raw_value );
+			    $value = wc_parse_relative_date_option( $raw_value );
+		    }
+
+		    return $value;
+	    }
 
     }
 }

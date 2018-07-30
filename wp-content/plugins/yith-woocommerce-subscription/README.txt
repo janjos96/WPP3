@@ -1,10 +1,10 @@
-﻿=== YITH WooCommerce Subscription  ===
+=== YITH WooCommerce Subscription  ===
 
 Contributors: yithemes
 Tags: checkout page, recurring billing, subscription billing, subscription box, Subscription Management, subscriptions, paypal subscriptions
 Requires at least: 3.5.1
-Tested up to: 4.8.2
-Stable tag: 1.2.0
+Tested up to: 4.9.6
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,21 @@ Yet, we can grant compatibility with themes developed by YIThemes, because they 
 
 
 == Changelog ==
+
+= 1.2.2 - Released on May 15, 2018 =
+New: Support to WordPress 4.9.6 RC1
+New: Support to WooCommerce 3.4.0 RC1
+New: Privacy settings option
+New: Retain pending subscriptions option
+New: Retain cancelled subscriptions option
+Update: Update Core Framework 3.0.15
+Update: Localization files
+Fix: Expiring Date format
+
+= 1.2.1 - Released on Jan 31, 2018 =
+* New: Support to WooCommerce 3.3.x
+* Update: Plugin Framework 3.0.11
+
 = 1.2.0 - Released on Oct 16, 2017 =
 * New: Support to WooCommerce 3.2.0
 * New: Added taxes on subscription recurring amount

@@ -140,9 +140,11 @@ class YITH_YWSBS_Subscriptions_List_Table extends WP_List_Table {
 	            }
                 break;
             case 'expired':
-                $expired_date = $subscription->expired_date;
-	            return  $expired_date;
-                break;
+	            $expired_date = get_post_meta( $item->ID, 'expired_date', true );
+	            $expired_date = ( $expired_date != '' ) ? $expired_date : '';
+
+	            return ( $expired_date ) ? date_i18n( wc_date_format(), $expired_date ) : __( 'Never', 'yith-woocommerce-subscription' );
+	            break;
 
             default:
                 return ''; //Show the whole array for troubleshooting purposes

@@ -329,3 +329,60 @@ if ( ! function_exists( 'ywsbs_add_date' ) ) {
 		return $new_date;
 	}
 }
+
+
+if ( ! function_exists( 'yith_check_privacy_enabled' ) ) {
+
+	/**
+	 * Check if the tool for export and erase personal data are enabled
+	 *
+	 * @return bool
+	 * @since 1.0.0
+	 */
+	function yith_check_privacy_enabled( $wc = false) {
+		global $wp_version;
+		$enabled = $wc ? version_compare( WC()->version, '3.4.0', '>=' ) && version_compare( $wp_version, '4.9.5', '>' ) : version_compare( $wp_version, '4.9.5', '>' );
+		return apply_filters('yith_check_privacy_enabled', $enabled, $wc );
+	}
+}
+
+if ( ! function_exists( 'ywsbs_get_subscription' ) ) {
+
+	/**
+	 * Return the subscription object
+	 *
+	 * @param int $subscription_id
+	 *
+	 * @return YWSBS_Subscription
+	 * @since 1.0.0
+	 */
+
+	function ywsbs_get_subscription( $subscription_id ) {
+		return new YWSBS_Subscription( $subscription_id );
+	}
+}
+
+if ( ! function_exists( 'ywsbs_get_status' ) ) {
+
+	/**
+	 * Return the list of status available
+	 *
+	 * @return array
+	 * @since 1.0.0
+	 */
+
+	function ywsbs_get_status() {
+		$options = array(
+			'active'    => __( 'active', 'yith-woocommerce-subscription' ),
+			'paused'    => __( 'paused', 'yith-woocommerce-subscription' ),
+			'pending'   => __( 'pending', 'yith-woocommerce-subscription' ),
+			'overdue'   => __( 'overdue', 'yith-woocommerce-subscription' ),
+			'trial'     => __( 'trial', 'yith-woocommerce-subscription' ),
+			'cancelled' => __( 'cancelled', 'yith-woocommerce-subscription' ),
+			'expired'   => __( 'expired', 'yith-woocommerce-subscription' ),
+			'suspended' => __( 'suspended', 'yith-woocommerce-subscription' ),
+		);
+
+		return apply_filters( 'ywsbs_status', $options );
+	}
+}
