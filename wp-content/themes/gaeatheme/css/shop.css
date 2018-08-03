@@ -1,3 +1,12 @@
-.produto-singular {
-    width: 100%;
+.products li {
+  width: 30vw !important;
+  display: inline !important;
+  margin-right: 50px !important;
+  margin-left: 25px !important;
+padding-bottom: 50px !important;
+}
+
+.woocommerce ul.products li.first, .woocommerce-page ul.products li.first {
+
+  clear: none !important;
 }
