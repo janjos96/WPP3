@@ -26,7 +26,7 @@
     width: 100px;
     height: 100px;
     background-size: 100%;
-    /*  background-repeat: no-repeat;*/
+      background-repeat: no-repeat;
     /*background: #999;*/
     border: 5px solid white;
   /*  outline: 1px solid gray;*/
