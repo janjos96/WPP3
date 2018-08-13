@@ -144,8 +144,10 @@ get_header(); ?>
                         <?php } // done the foreach statement ?>
 
                     </section>
+
+                    <?php get_footer(); ?>
             </div>
 
-<?php get_footer(); ?>
+
 
                     <script src="<?php echo get_bloginfo('template_directory'); ?>/js/hidescrollmain.js"></script>
